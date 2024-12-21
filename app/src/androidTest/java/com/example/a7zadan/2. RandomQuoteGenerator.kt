@@ -10,3 +10,18 @@ object Quotes {
         quotes.add(quote)
     }
 }
+
+fun main(){
+    while (true) {
+        println("1. Losowy cytat\n2. Dodaj cytat\n3. Zakończ")
+        when (readLine()) {
+            "1" -> println("Cytat: ${Quotes.getRandomQuote()}")
+            "2" -> {
+                println("Podaj cytat:")
+                Quotes.addQuote(readLine() ?: "")
+            }
+            "3" -> return
+            else -> println("Niepoprawny wybór, przeczytaj opcje jeszcze raz!")
+        }
+    }
+}
