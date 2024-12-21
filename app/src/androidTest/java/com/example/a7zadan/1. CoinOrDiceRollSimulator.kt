@@ -4,6 +4,12 @@ interface coinOrDiceRoll {
 
 }
 
+class Coin : coinOrDiceRoll {
+    override fun roll() = arrayOf("Orzeł", "Reszka").random()
+}
+
+
+
 fun main(){
 
 }
