@@ -15,4 +15,11 @@ class Dice : coinOrDiceRoll {
 
 fun main(){
 
+    println("Wybierz opcję: (1) Rzut monetą (2) Rzut kością")
+    when (readLine()) {
+        "1" -> println("Wynik rzutu monetą: ${Coin().roll()}")
+        "2" -> println("Wynik rzutu kością: ${Dice().roll()}")
+        else -> println("Niepoprawny wybór!")
+    }
+
 }
