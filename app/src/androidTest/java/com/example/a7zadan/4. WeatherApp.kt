@@ -20,11 +20,25 @@ class Cloudy : Weather {
     }
 }
 
-
+data class City(val name: String, val weather: Weather)
 
 
 fun main(){
 
+    val cities = listOf(
+        City("Warszawa", Sunny()),
+        City("Gdańsk", Rainy()),
+        City("Kraków", Cloudy())
+    )
 
+    println("Wybierz miasto:")
+    cities.forEachIndexed { index, city -> println("${index + 1}. ${city.name}") }
+
+    val cityChoice = readLine()?.toIntOrNull()
+
+    cityChoice?.takeIf { it in 1..cities.size }?.let {
+        val selectedCity = cities[it - 1]
+        println("Prognoza pogody dla miasta ${selectedCity.name}: ${selectedCity.weather.getForecast()}")
+    } ?: println("Niepoprawny wybór.")
 
 }
