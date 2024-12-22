@@ -26,5 +26,10 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
         val min = matches.minOfOrNull { it.score }
         return if (max != null && min != null) max - min else null
     }
+
+    fun countMatchesAboveThreshold(threshold: Int): Int {
+        return matches.count { it.score > threshold }
+    }
+
 }
 
