@@ -33,3 +33,20 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
 
 }
 
+fun main() {
+    val analyzer = SportsResultsAnalyzer(mutableListOf())
+
+    analyzer.addMatch(75)
+    analyzer.addMatch(65)
+    analyzer.addMatch(80)
+    analyzer.addMatch(60)
+
+    println("Przefiltrowane mecze (wynik >= 70): ${analyzer.filterMatches(70)}")
+    analyzer.addBonusPoints(10)
+    println("Wyniki po dodaniu punktów bonusowych: ${analyzer.matches}")
+    println("Suma wyników: ${analyzer.sumScores()}")
+    println("Maksymalny wynik: ${analyzer.maxScore()}")
+    println("Różnica między maksymalnym a minimalnym wynikiem: ${analyzer.scoreDifference()}")
+    println("Mecze z wynikiem powyżej 70: ${analyzer.countMatchesAboveThreshold(70)}")
+}
+
