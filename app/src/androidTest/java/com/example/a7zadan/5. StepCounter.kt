@@ -7,6 +7,10 @@ class Krokomierz {
         steps++
     }
 
+    fun reset() {
+        steps = 0
+    }
+
 }
 
 fun main(){
