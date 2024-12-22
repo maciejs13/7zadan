@@ -29,3 +29,26 @@ class TrueFalseQuestion(
         return answer.equals("Prawda", ignoreCase = true) == correctAnswer
     }
 }
+
+fun main() {
+    val questions = listOf(
+        MultipleChoiceQuestion("Co jest stolicą Polski?", listOf("Warszawa", "Berlin", "Praga"), "Warszawa"),
+        TrueFalseQuestion("Czy Kotlin jest językiem programowania?", true),
+        MultipleChoiceQuestion("2 + 2 to:", listOf("3", "4", "5"), "4")
+    )
+
+    var correctAnswers = 0
+
+    for (question in questions) {
+        println(question.askQuestion())
+        val userAnswer = readln()
+        if (question.checkAnswer(userAnswer)) {
+            println("Poprawna odpowiedź!")
+            correctAnswers++
+        } else {
+            println("Niepoprawna odpowiedź.")
+        }
+    }
+
+    println("Twój wynik: $correctAnswers/${questions.size}")
+}
