@@ -12,5 +12,13 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
     fun addBonusPoints(points: Int) {
         matches.forEach { it.score += points }
     }
+
+    fun sumScores(): Int {
+        return matches.sumOf { it.score }
+    }
+
+    fun maxScore(): Int? {
+        return matches.maxOfOrNull { it.score }
+    }
 }
 
