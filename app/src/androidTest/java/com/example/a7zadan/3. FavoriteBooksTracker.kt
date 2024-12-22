@@ -6,6 +6,8 @@ class FavoriteBooksTracker{
 
     fun addBook(book: Book) = books.add(book)
 
+    fun displayBooks() = books.forEach { println("${it.title}, ${it.author}, ${it.year}") }
+
 }
 
 fun main(){
