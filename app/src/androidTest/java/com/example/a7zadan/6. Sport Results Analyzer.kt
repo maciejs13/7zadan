@@ -1,0 +1,1 @@
+data class Match(val score: Int)
