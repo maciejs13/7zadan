@@ -20,5 +20,11 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
     fun maxScore(): Int? {
         return matches.maxOfOrNull { it.score }
     }
+
+    fun scoreDifference(): Int? {
+        val max = matches.maxOfOrNull { it.score }
+        val min = matches.minOfOrNull { it.score }
+        return if (max != null && min != null) max - min else null
+    }
 }
 
