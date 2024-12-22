@@ -1,4 +1,4 @@
-data class Match(val score: Int)
+data class Match(var score: Int)
 
 class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
     fun addMatch(score: Int) {
@@ -31,6 +31,10 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
         return matches.count { it.score > threshold }
     }
 
+    fun getMatches(): List<Match> {
+        return matches
+    }
+
 }
 
 fun main() {
@@ -43,7 +47,7 @@ fun main() {
 
     println("Przefiltrowane mecze (wynik >= 70): ${analyzer.filterMatches(70)}")
     analyzer.addBonusPoints(10)
-    println("Wyniki po dodaniu punktów bonusowych: ${analyzer.matches}")
+    println("Wyniki po dodaniu punktów bonusowych: ${analyzer.getMatches()}")
     println("Suma wyników: ${analyzer.sumScores()}")
     println("Maksymalny wynik: ${analyzer.maxScore()}")
     println("Różnica między maksymalnym a minimalnym wynikiem: ${analyzer.scoreDifference()}")
