@@ -8,5 +8,9 @@ class SportsResultsAnalyzer(private val matches: MutableList<Match>) {
     fun filterMatches(minScore: Int): List<Match> {
         return matches.filter { it.score >= minScore }
     }
+
+    fun addBonusPoints(points: Int) {
+        matches.forEach { it.score += points }
+    }
 }
 
