@@ -16,3 +16,16 @@ class MultipleChoiceQuestion(
         return answer.equals(correctAnswer, ignoreCase = true)
     }
 }
+
+class TrueFalseQuestion(
+    private val questionText: String,
+    private val correctAnswer: Boolean
+) : Question {
+    override fun askQuestion(): String {
+        return "$questionText (Prawda/Fałsz)"
+    }
+
+    override fun checkAnswer(answer: String): Boolean {
+        return answer.equals("Prawda", ignoreCase = true) == correctAnswer
+    }
+}
